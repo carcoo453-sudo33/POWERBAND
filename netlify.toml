@@ -1,37 +1,35 @@
 # Netlify configuration for POWERBAND
 [build]
-  # Build command - install all dependencies (including dev) then build
-  command = "npm ci && npx vite build"
+  # Build command - explicitly install all dependencies including dev
+  command = "npm install && npm run build"
   
   # Directory to publish (Vite builds to 'dist')
   publish = "dist"
   
   # Environment variables for build
-  environment = { NODE_VERSION = "20", NPM_FLAGS = "--include=dev" }
+  environment = { NODE_VERSION = "20" }
 
 # Production context (main branch)
 [context.production]
-  command = "npm ci && npx vite build"
+  command = "npm install && npm run build"
   
 [context.production.environment]
   NODE_ENV = "production"
   VITE_APP_TITLE = "POWERBAND — Premium Fitness Gear & Equipment"
   VITE_ENVIRONMENT = "production"
-  NPM_FLAGS = "--include=dev"
 
 # Deploy preview context (pull requests)
 [context.deploy-preview]
-  command = "npm ci && npx vite build"
+  command = "npm install && npm run build"
   
 [context.deploy-preview.environment]
   NODE_ENV = "production"
   VITE_APP_TITLE = "POWERBAND (Preview) — Premium Fitness Gear & Equipment"
   VITE_ENVIRONMENT = "preview"
-  NPM_FLAGS = "--include=dev"
 
 # Branch deploy context (feature branches)
 [context.branch-deploy]
-  command = "npm ci && npx vite build"
+  command = "npm install && npm run build"
 
 # Redirect rules for SPA (Single Page Application)
 [[redirects]]
