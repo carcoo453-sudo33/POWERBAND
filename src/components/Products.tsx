@@ -35,7 +35,7 @@ const products = [
 
 export default function Products() {
   return (
-    <section id="products" className="py-24 md:py-32 bg-secondary/30">
+    <section id="products" className="py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-sm font-medium text-primary uppercase tracking-widest animate-on-scroll">

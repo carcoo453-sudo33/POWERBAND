@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">© 2026 PowerBand. All rights reserved.</p>
           <div className="flex gap-2 w-full md:w-auto">
             <Input

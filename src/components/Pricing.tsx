@@ -47,7 +47,7 @@ export default function Pricing() {
   }, []);
 
   return (
-    <section id="pricing" className="py-24 md:py-32" ref={sectionRef}>
+    <section id="pricing" className="py-16 md:py-24" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-sm font-medium text-primary uppercase tracking-widest animate-on-scroll">
@@ -64,7 +64,7 @@ export default function Pricing() {
               key={plan.name}
               className={`animate-on-scroll relative transition-all duration-300 hover:-translate-y-2 ${
                 plan.highlighted
-                  ? "border-primary bg-card animate-glow-pulse scale-105"
+                  ? "border-primary bg-card animate-glow-pulse md:scale-105"
                   : "border-border bg-card hover:border-primary/30"
               }`}
             >

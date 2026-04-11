@@ -27,7 +27,7 @@ const reviews = [
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="py-24 md:py-32">
+    <section id="reviews" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-sm font-medium text-primary uppercase tracking-widest animate-on-scroll">
