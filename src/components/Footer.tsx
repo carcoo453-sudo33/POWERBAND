@@ -10,7 +10,7 @@ const links = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-16">
+    <footer className="border-t border-border py-16 animate-on-scroll">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
@@ -27,8 +27,9 @@ export default function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="h-10 w-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="h-10 w-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
                   aria-label="Social link"
+                  style={{ animationDelay: `${i * 100}ms` }}
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -43,8 +44,8 @@ export default function Footer() {
               <ul className="space-y-2">
                 {items.map((item) => (
                   <li key={item}>
-                    <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                      {item}
+                    <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors story-link">
+                      <span>{item}</span>
                     </a>
                   </li>
                 ))}
@@ -62,7 +63,7 @@ export default function Footer() {
               type="email"
               className="rounded-full bg-secondary border-border max-w-xs focus:border-primary"
             />
-            <Button className="rounded-full px-6 box-glow">Subscribe</Button>
+            <Button className="rounded-full px-6 box-glow btn-shimmer">Subscribe</Button>
           </div>
         </div>
       </div>

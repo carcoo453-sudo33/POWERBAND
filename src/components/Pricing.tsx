@@ -1,6 +1,8 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useCountUp } from "@/hooks/useCountUp";
+import { useEffect, useRef, useState } from "react";
 
 const plans = [
   {
@@ -26,9 +28,26 @@ const plans = [
   },
 ];
 
+function PriceDisplay({ price, start }: { price: number; start: boolean }) {
+  const value = useCountUp(price, 1200, start);
+  return <>${value}</>;
+}
+
 export default function Pricing() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [countStarted, setCountStarted] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setCountStarted(true); },
+      { threshold: 0.3 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="pricing" className="py-24 md:py-32">
+    <section id="pricing" className="py-24 md:py-32" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-sm font-medium text-primary uppercase tracking-widest animate-on-scroll">
@@ -45,7 +64,7 @@ export default function Pricing() {
               key={plan.name}
               className={`animate-on-scroll relative transition-all duration-300 hover:-translate-y-2 ${
                 plan.highlighted
-                  ? "border-primary bg-card box-glow scale-105"
+                  ? "border-primary bg-card animate-glow-pulse scale-105"
                   : "border-border bg-card hover:border-primary/30"
               }`}
             >
@@ -58,7 +77,9 @@ export default function Pricing() {
                 <CardTitle className="text-xl font-display text-card-foreground">{plan.name}</CardTitle>
                 <p className="text-sm text-muted-foreground mt-1">{plan.desc}</p>
                 <div className="mt-6">
-                  <span className="text-5xl font-bold font-display text-card-foreground">${plan.price}</span>
+                  <span className="text-5xl font-bold font-display text-card-foreground">
+                    <PriceDisplay price={plan.price} start={countStarted} />
+                  </span>
                   <span className="text-muted-foreground">/mo</span>
                 </div>
               </CardHeader>
@@ -72,7 +93,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <Button
-                  className={`w-full rounded-full ${
+                  className={`w-full rounded-full btn-shimmer ${
                     plan.highlighted ? "box-glow hover:box-glow-lg" : ""
                   }`}
                   variant={plan.highlighted ? "default" : "outline"}

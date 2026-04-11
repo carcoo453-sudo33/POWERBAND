@@ -50,17 +50,17 @@ export default function Products() {
           {products.map((p) => (
             <Card
               key={p.name}
-              className="animate-on-scroll bg-card border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/5 group overflow-hidden"
+              className="animate-on-scroll-scale bg-card border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary/5 group overflow-hidden"
             >
               <div className="relative overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.name}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   loading="lazy"
                 />
                 {p.tag && (
-                  <span className="absolute top-3 left-3 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
+                  <span className="absolute top-3 left-3 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full animate-tag-glow">
                     {p.tag}
                   </span>
                 )}
@@ -73,7 +73,7 @@ export default function Products() {
                 <h3 className="font-semibold font-display text-card-foreground mb-3">{p.name}</h3>
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-primary">${p.price}</span>
-                  <Button size="sm" className="rounded-full gap-1.5">
+                  <Button size="sm" className="rounded-full gap-1.5 btn-shimmer">
                     <ShoppingCart className="h-4 w-4" /> Add
                   </Button>
                 </div>
