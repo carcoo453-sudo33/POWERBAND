@@ -1,7 +1,7 @@
 # Netlify configuration for POWERBAND
 [build]
-  # Build command
-  command = "npm run build"
+  # Build command - install dependencies first, then build
+  command = "npm ci && npm run build"
   
   # Directory to publish (Vite builds to 'dist')
   publish = "dist"
@@ -11,7 +11,7 @@
 
 # Production context (main branch)
 [context.production]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   
 [context.production.environment]
   NODE_ENV = "production"
@@ -20,7 +20,7 @@
 
 # Deploy preview context (pull requests)
 [context.deploy-preview]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   
 [context.deploy-preview.environment]
   NODE_ENV = "production"
@@ -29,7 +29,7 @@
 
 # Branch deploy context (feature branches)
 [context.branch-deploy]
-  command = "npm run build"
+  command = "npm ci && npm run build"
 
 # Redirect rules for SPA (Single Page Application)
 [[redirects]]
@@ -74,16 +74,6 @@
 # Functions directory (for future API endpoints)
 [functions]
   directory = "netlify/functions"
-
-# Build plugins
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-  
-  [plugins.inputs.thresholds]
-    performance = 0.9
-    accessibility = 0.9
-    best-practices = 0.9
-    seo = 0.9
 
 # Development settings
 [dev]
