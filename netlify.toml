@@ -71,13 +71,7 @@
   [headers.values]
     Link = "</assets/index.css>; rel=preload; as=style, </assets/index.js>; rel=preload; as=script"
 
-# Form handling (if you add contact forms later)
-# [[forms]]
-#   name = "contact"
-#   action = "/thank-you"
-#   method = "POST"
-
-# Functions (for future API endpoints)
+# Functions directory (for future API endpoints)
 [functions]
   directory = "netlify/functions"
 
@@ -90,10 +84,6 @@
     accessibility = 0.9
     best-practices = 0.9
     seo = 0.9
-
-# Edge functions (for advanced features)
-[edge_functions]
-  directory = "netlify/edge-functions"
 
 # Development settings
 [dev]
