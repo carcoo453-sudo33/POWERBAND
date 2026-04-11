@@ -5,10 +5,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center w-full pt-20"
     >
       {/* Background image with Ken Burns */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80"
           alt="Athlete training in a modern gym with professional equipment"
@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 w-full">
         <div className="max-w-3xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm text-primary mb-8 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
@@ -27,7 +27,7 @@ export default function Hero() {
             New Collection 2026
           </div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-display leading-[0.95] mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-display leading-[0.95] mb-6 animate-fade-in-up break-words" style={{ animationDelay: "0.2s" }}>
             <span className="inline-block">UNLEASH YOUR</span>
             <br />
             <span className="text-primary text-glow animate-text-reveal inline-block" style={{ animationDelay: "0.6s" }}>
@@ -35,26 +35,26 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-lg mb-10 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-lg mb-10 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             Premium fitness equipment engineered for athletes who demand nothing
             less than extraordinary performance.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-            <Button size="lg" className="rounded-full px-8 text-base box-glow hover:box-glow-lg transition-shadow gap-2 btn-shimmer">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+            <Button size="lg" className="rounded-full px-8 text-base box-glow hover:box-glow-lg transition-shadow gap-2 btn-shimmer w-full sm:w-auto">
               Shop Equipment <ArrowRight className="h-5 w-5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="rounded-full px-8 text-base border-muted-foreground/30 hover:border-primary hover:text-primary gap-2"
+              className="rounded-full px-8 text-base border-muted-foreground/30 hover:border-primary hover:text-primary gap-2 w-full sm:w-auto"
             >
               <Play className="h-5 w-5" /> Watch Video
             </Button>
           </div>
 
           {/* Trust badges */}
-          <div className="flex items-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
             <div className="flex -space-x-3">
               {[
                 "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
@@ -79,8 +79,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Floating card with float animation */}
-        <div className="hidden lg:block absolute right-8 bottom-32 bg-card/80 backdrop-blur-md border border-border rounded-2xl p-6 w-72 animate-fade-in-up animate-float" style={{ animationDelay: "0.9s" }}>
+        {/* Floating card with float animation - hidden on mobile and tablet */}
+        <div className="hidden xl:block absolute right-8 bottom-32 bg-card/80 backdrop-blur-md border border-border rounded-2xl p-6 w-72 animate-fade-in-up animate-float" style={{ animationDelay: "0.9s" }}>
           <div className="flex items-center gap-3 mb-4">
             <div className="h-3 w-3 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-medium text-foreground">Current Session</span>
