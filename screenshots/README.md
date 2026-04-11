@@ -178,6 +178,15 @@ Screenshots in this folder are not included in the production build (see `.docke
 
 ---
 
-**Last Updated**: December 2024  
-**Total Screenshots**: 0 (folder created, screenshots to be added)  
-**Folder Size**: 0 KB
+**Last Updated**: April 2026  
+**Total Screenshots**: 5 (desktop views)  
+**Folder Size**: ~2.5 MB
+
+## 📸 Current Screenshots
+
+### Desktop Views (1920x1080)
+- `desktop-hero.png` - Hero section with main banner and call-to-action
+- `desktop-features.png` - Features section showcasing key capabilities  
+- `desktop-services.png` - Services overview and offerings
+- `desktop-testimonials.png` - Customer testimonials and reviews
+- `desktop-footer.png` - Footer section with contact information
