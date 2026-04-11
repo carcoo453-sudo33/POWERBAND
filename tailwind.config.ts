@@ -97,6 +97,12 @@ export default {
         "fade-in": "fade-in 0.5s ease-out forwards",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
       },
+      maxWidth: {
+        'screen': '100vw',
+      },
+      width: {
+        'screen': '100vw',
+      }
     },
   },
   plugins: [tailwindcssAnimate],

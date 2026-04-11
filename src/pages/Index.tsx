@@ -14,19 +14,21 @@ const Index = () => {
   useScrollAnimation();
 
   return (
-    <div className="min-h-screen bg-background text-foreground w-full max-w-full">
-      <Navbar />
-      <main className="w-full overflow-x-hidden">
-        <Hero />
-        <BrandMarquee />
-        <Features />
-        <Products />
-        <Pricing />
-        <Team />
-        <Reviews />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="main-scroll-container">
+      <div className="min-h-screen bg-background text-foreground">
+        <Navbar />
+        <main>
+          <Hero />
+          <BrandMarquee />
+          <Features />
+          <Products />
+          <Pricing />
+          <Team />
+          <Reviews />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };
