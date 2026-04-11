@@ -14,7 +14,7 @@ const Index = () => {
   useScrollAnimation();
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
