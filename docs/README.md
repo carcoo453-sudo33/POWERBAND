@@ -16,6 +16,7 @@ Welcome to the POWERBAND documentation! This directory contains comprehensive gu
 - [API Reference](./api.md) - API endpoints and data structures
 
 ### Deployment
+- [Docker Guide](./docker.md) - Containerization and deployment with Docker
 - [Deployment Guide](./deployment.md) - How to deploy the application
 - [Environment Setup](./environment.md) - Environment variables and configuration
 - [Performance](./performance.md) - Performance optimization guidelines

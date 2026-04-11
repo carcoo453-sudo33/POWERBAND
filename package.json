@@ -10,7 +10,13 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "docker:build": "docker build -t powerband .",
+    "docker:run": "docker run -p 8080:80 powerband",
+    "docker:compose": "docker-compose up -d",
+    "docker:compose:down": "docker-compose down",
+    "deploy:netlify": "npm run build && netlify deploy --prod --dir=dist",
+    "deploy:preview": "npm run build && netlify deploy --dir=dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

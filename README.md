@@ -10,7 +10,9 @@
 
 ## 🌟 Live Demo
 
-**[View Live Site →](https://mostafa-said7.github.io/POWERBAND)**
+**[View Live Site →](https://powerband.netlify.app)**
+
+*Deployed on Netlify with automatic CI/CD from GitHub*
 
 ## ✨ Features
 
@@ -73,6 +75,22 @@ npm run build
 
 # Preview production build
 npm run preview
+
+# Deploy to Netlify
+npm run deploy:netlify
+```
+
+### Docker Deployment
+
+```bash
+# Build Docker image
+npm run docker:build
+
+# Run with Docker
+npm run docker:run
+
+# Or use Docker Compose
+npm run docker:compose
 ```
 
 ## 🛠️ Tech Stack
@@ -96,9 +114,10 @@ npm run preview
 - **[TypeScript](https://www.typescriptlang.org/)** - Static type checking
 
 ### **Deployment**
+- **[Netlify](https://netlify.com/)** - Primary hosting platform
 - **[GitHub Actions](https://github.com/features/actions)** - CI/CD pipeline
-- **[GitHub Pages](https://pages.github.com/)** - Static site hosting
 - **[Docker](https://www.docker.com/)** - Containerization support
+- **Multi-platform** - Supports various cloud providers
 
 ## 📁 Project Structure
 
@@ -114,7 +133,10 @@ POWERBAND/
 │   ├── 📄 quick-start.md    # Quick start guide
 │   ├── 📄 components.md     # Component documentation
 │   ├── 📄 deployment.md     # Deployment guide
+│   ├── 📄 docker.md         # Docker guide
 │   └── 📄 troubleshooting.md
+├── 📁 screenshots/          # Application screenshots
+│   └── 📄 README.md         # Screenshot documentation
 ├── 📁 public/               # Static assets
 │   ├── 🖼️ favicon.svg       # Site favicon
 │   └── 🤖 robots.txt        # SEO robots file
@@ -130,6 +152,9 @@ POWERBAND/
 │   ├── 📄 App.tsx           # Main app component
 │   ├── 📄 main.tsx          # Entry point
 │   └── 🎨 index.css         # Global styles
+├── 🐳 Dockerfile            # Docker configuration
+├── 🐳 docker-compose.yml    # Docker Compose setup
+├── 🌐 netlify.toml          # Netlify configuration
 ├── 📄 package.json          # Dependencies and scripts
 ├── 📄 tailwind.config.ts    # Tailwind configuration
 ├── 📄 tsconfig.json         # TypeScript configuration
@@ -172,7 +197,8 @@ Comprehensive documentation is available in the `/docs` folder:
 - **[🏗️ Installation](./docs/installation.md)** - Detailed setup instructions
 - **[📁 Project Structure](./docs/project-structure.md)** - Codebase organization
 - **[🧩 Components](./docs/components.md)** - Component usage guide
-- **[🚀 Deployment](./docs/deployment.md)** - Deployment options
+- **[� Docker Guide](./docs/docker.md)** - Containerization and deployment
+- **[�🚀 Deployment](./docs/deployment.md)** - Deployment options
 - **[🔧 Troubleshooting](./docs/troubleshooting.md)** - Common issues and solutions
 
 ## 🧪 Available Scripts
@@ -193,8 +219,15 @@ npm run test         # Run tests
 npm run test:watch   # Run tests in watch mode
 npm run test:ui      # Run tests with UI
 
+# Docker
+npm run docker:build       # Build Docker image
+npm run docker:run         # Run Docker container
+npm run docker:compose     # Start with Docker Compose
+npm run docker:compose:down # Stop Docker Compose
+
 # Deployment
-npm run deploy       # Deploy to GitHub Pages
+npm run deploy:netlify     # Deploy to Netlify
+npm run deploy:preview     # Deploy preview to Netlify
 ```
 
 ## 🤝 Contributing
@@ -245,10 +278,12 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🔗 Links
 
-- **[Live Demo](https://mostafa-said7.github.io/POWERBAND)** - See it in action
-- **[Documentation](./docs/README.md)** - Comprehensive guides
-- **[Issues](https://github.com/Mostafa-SAID7/POWERBAND/issues)** - Report bugs or request features
-- **[Discussions](https://github.com/Mostafa-SAID7/POWERBAND/discussions)** - Community discussions
+- **[🌐 Live Demo](https://powerband.netlify.app)** - See it in action
+- **[📚 Documentation](./docs/README.md)** - Comprehensive guides
+- **[📸 Screenshots](./screenshots/README.md)** - Visual documentation
+- **[🐳 Docker Hub](https://hub.docker.com/)** - Container images (coming soon)
+- **[🐛 Issues](https://github.com/Mostafa-SAID7/POWERBAND/issues)** - Report bugs or request features
+- **[💬 Discussions](https://github.com/Mostafa-SAID7/POWERBAND/discussions)** - Community discussions
 
 ---
 
