@@ -38,12 +38,13 @@ export default function Team() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children">
           {team.map((member) => (
-            <div key={member.name} className="animate-on-scroll text-center group">
-              <div className="relative mx-auto w-40 h-40 mb-6">
+            <div key={member.name} className="animate-on-scroll-scale text-center group">
+              <div className="relative mx-auto w-40 h-40 mb-6 overflow-hidden rounded-full">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full rounded-full object-cover border-2 border-border group-hover:border-primary transition-colors duration-300"
+                  className="w-full h-full object-cover border-2 border-border group-hover:border-primary transition-all duration-500 group-hover:scale-110"
+                  style={{ clipPath: "circle(100% at 50% 50%)" }}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 rounded-full bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
@@ -55,7 +56,8 @@ export default function Team() {
                   <a
                     key={i}
                     href="#"
-                    className="h-9 w-9 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                    className="h-9 w-9 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200 opacity-0 group-hover:opacity-100"
+                    style={{ transitionDelay: `${i * 100}ms` }}
                     aria-label="Social link"
                   >
                     <Icon className="h-4 w-4" />

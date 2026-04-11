@@ -13,7 +13,14 @@ export function useScrollAnimation() {
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
 
-    const elements = document.querySelectorAll(".animate-on-scroll");
+    const selectors = [
+      ".animate-on-scroll",
+      ".animate-on-scroll-left",
+      ".animate-on-scroll-right",
+      ".animate-on-scroll-scale",
+    ];
+
+    const elements = document.querySelectorAll(selectors.join(","));
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();

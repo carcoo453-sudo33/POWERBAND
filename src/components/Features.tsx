@@ -6,18 +6,27 @@ const features = [
     icon: Shield,
     title: "Military-Grade Durability",
     description: "Built from aerospace-grade materials to withstand the most intense training sessions, guaranteed to last a lifetime.",
+    direction: "left" as const,
   },
   {
     icon: Hand,
     title: "Ergonomic Design",
     description: "Every curve and grip point engineered with biomechanics experts to reduce strain and maximize performance.",
+    direction: "scale" as const,
   },
   {
     icon: Briefcase,
     title: "Ultra Portable",
     description: "Compact, foldable, and travel-friendly. Take your full workout setup anywhere in the world.",
+    direction: "right" as const,
   },
 ];
+
+const directionClass = {
+  left: "animate-on-scroll-left",
+  right: "animate-on-scroll-right",
+  scale: "animate-on-scroll-scale",
+};
 
 export default function Features() {
   return (
@@ -38,10 +47,10 @@ export default function Features() {
           {features.map((f) => (
             <Card
               key={f.title}
-              className="animate-on-scroll bg-card border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 group"
+              className={`${directionClass[f.direction]} bg-card border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 group`}
             >
               <CardContent className="p-8">
-                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-500 group-hover:rotate-[360deg]">
                   <f.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold font-display mb-3 text-card-foreground">{f.title}</h3>

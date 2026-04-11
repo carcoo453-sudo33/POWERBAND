@@ -32,10 +32,10 @@ export default function Contact() {
           </h2>
         </div>
 
-        <Card className="max-w-xl mx-auto animate-on-scroll bg-card border-border">
+        <Card className="max-w-xl mx-auto animate-on-scroll-scale bg-card border-border">
           <CardContent className="p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="relative">
+              <div className="relative animate-on-scroll-right" style={{ transitionDelay: "100ms" }}>
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Your Name"
@@ -43,7 +43,7 @@ export default function Contact() {
                   className="pl-10 rounded-full bg-secondary border-border focus:border-primary focus:ring-primary"
                 />
               </div>
-              <div className="relative">
+              <div className="relative animate-on-scroll-right" style={{ transitionDelay: "200ms" }}>
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   type="email"
@@ -52,7 +52,7 @@ export default function Contact() {
                   className="pl-10 rounded-full bg-secondary border-border focus:border-primary focus:ring-primary"
                 />
               </div>
-              <div className="relative">
+              <div className="relative animate-on-scroll-right" style={{ transitionDelay: "300ms" }}>
                 <MessageSquare className="absolute left-3 top-4 h-4 w-4 text-muted-foreground" />
                 <Textarea
                   placeholder="Your Message"
@@ -63,7 +63,7 @@ export default function Contact() {
               </div>
               <Button
                 type="submit"
-                className="w-full rounded-full box-glow hover:box-glow-lg transition-shadow gap-2"
+                className="w-full rounded-full box-glow hover:box-glow-lg transition-shadow gap-2 btn-shimmer"
                 disabled={loading}
               >
                 {loading ? "Sending..." : "Send Message"} <Send className="h-4 w-4" />

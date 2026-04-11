@@ -39,17 +39,21 @@ export default function Reviews() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 stagger-children">
-          {reviews.map((r) => (
+          {reviews.map((r, idx) => (
             <Card
               key={r.name}
-              className="animate-on-scroll bg-card border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
+              className={`${idx % 2 === 0 ? "animate-on-scroll-left" : "animate-on-scroll-right"} bg-card border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1`}
             >
               <CardContent className="p-8">
-                <Quote className="h-8 w-8 text-primary/30 mb-4" />
+                <Quote className="h-8 w-8 text-primary/30 mb-4 animate-float" />
                 <p className="text-muted-foreground leading-relaxed mb-6">{r.text}</p>
                 <div className="flex items-center gap-1 mb-4">
                   {Array.from({ length: r.rating }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    <Star
+                      key={i}
+                      className="h-4 w-4 fill-primary text-primary transition-all duration-300"
+                      style={{ animationDelay: `${i * 100}ms` }}
+                    />
                   ))}
                 </div>
                 <div className="flex items-center gap-3">

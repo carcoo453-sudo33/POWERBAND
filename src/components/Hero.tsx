@@ -7,12 +7,12 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden pt-20"
     >
-      {/* Background image */}
-      <div className="absolute inset-0">
+      {/* Background image with Ken Burns */}
+      <div className="absolute inset-0 overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80"
           alt="Athlete training in a modern gym with professional equipment"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-30 animate-ken-burns"
           loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
@@ -28,9 +28,11 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-display leading-[0.95] mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            UNLEASH YOUR
+            <span className="inline-block">UNLEASH YOUR</span>
             <br />
-            <span className="text-primary text-glow">FULL POWER</span>
+            <span className="text-primary text-glow animate-text-reveal inline-block" style={{ animationDelay: "0.6s" }}>
+              FULL POWER
+            </span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-lg mb-10 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
@@ -39,7 +41,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-            <Button size="lg" className="rounded-full px-8 text-base box-glow hover:box-glow-lg transition-shadow gap-2">
+            <Button size="lg" className="rounded-full px-8 text-base box-glow hover:box-glow-lg transition-shadow gap-2 btn-shimmer">
               Shop Equipment <ArrowRight className="h-5 w-5" />
             </Button>
             <Button
@@ -77,8 +79,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Floating card */}
-        <div className="hidden lg:block absolute right-8 bottom-32 bg-card/80 backdrop-blur-md border border-border rounded-2xl p-6 w-72 animate-fade-in-up" style={{ animationDelay: "0.9s" }}>
+        {/* Floating card with float animation */}
+        <div className="hidden lg:block absolute right-8 bottom-32 bg-card/80 backdrop-blur-md border border-border rounded-2xl p-6 w-72 animate-fade-in-up animate-float" style={{ animationDelay: "0.9s" }}>
           <div className="flex items-center gap-3 mb-4">
             <div className="h-3 w-3 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-medium text-foreground">Current Session</span>
