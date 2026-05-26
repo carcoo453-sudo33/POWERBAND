@@ -4,7 +4,7 @@ import { userService } from '../services/userService';
 import { authenticate, AuthRequest } from '../middleware/auth';
 import { AppError } from '../middleware/errorHandler';
 
-const router = Router();
+const router: any = Router();
 
 // Validation schema
 const updateUserSchema = z.object({

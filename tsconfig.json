@@ -18,13 +18,13 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/frontend"
+      "path": "./frontend"
     },
     {
-      "path": "./apps/backend"
+      "path": "./backend"
     },
     {
-      "path": "./packages/shared"
+      "path": "./shared"
     }
   ]
 }

@@ -4,7 +4,7 @@ import { productService } from '../services/productService';
 import { authenticate, AuthRequest } from '../middleware/auth';
 import { AppError } from '../middleware/errorHandler';
 
-const router = Router();
+const router: any = Router();
 
 // Validation schemas
 const createProductSchema = z.object({
