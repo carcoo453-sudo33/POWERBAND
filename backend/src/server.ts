@@ -59,12 +59,18 @@ const PORT = process.env.PORT || 3001;
 
 const startServer = async () => {
   try {
-    // Test database connection
-    await prisma.$connect();
-    console.log('[v0] Connected to database');
+    // Test database connection (optional for development)
+    try {
+      await prisma.$connect();
+      console.log('[v0] Connected to database');
+    } catch (dbError) {
+      console.warn('[v0] Database connection failed - running in mock mode:', (dbError as Error).message);
+      console.warn('[v0] Set DATABASE_URL to a valid MongoDB connection to enable database features');
+    }
 
     app.listen(PORT, () => {
       console.log(`[v0] Backend server running on port ${PORT}`);
+      console.log(`[v0] Visit http://localhost:${PORT}/health to check server status`);
     });
   } catch (error) {
     console.error('[v0] Failed to start server:', error);
