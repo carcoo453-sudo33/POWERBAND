@@ -78,20 +78,24 @@ export class ProductService {
   async createProduct(
     userId: string,
     data: {
-      name: string;
+      name?: string;
       description?: string;
-      price: number;
+      price?: number;
       image?: string;
       category?: string;
     }
   ) {
-    if (!data.name || data.price < 0) {
+    if (!data.name || !data.price || data.price < 0) {
       throw new AppError('Invalid product data', 400);
     }
 
     return prisma.product.create({
       data: {
-        ...data,
+        name: data.name || '',
+        description: data.description,
+        price: data.price || 0,
+        image: data.image,
+        category: data.category,
         userId,
       },
     });

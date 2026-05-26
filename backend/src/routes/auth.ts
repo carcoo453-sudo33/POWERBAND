@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { authService } from '../services/authService';
 import { AppError } from '../middleware/errorHandler';
 
-const router = Router();
+const router: any = Router();
 
 // Validation schemas
 const registerSchema = z.object({

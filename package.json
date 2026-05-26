@@ -5,19 +5,19 @@
   "description": "POWERBAND - Monorepo with frontend and backend",
   "packageManager": "bun@latest",
   "workspaces": [
-    "apps/frontend",
-    "apps/backend",
-    "packages/shared"
+    "frontend",
+    "backend",
+    "shared"
   ],
   "scripts": {
     "dev": "bun run --parallel dev:frontend dev:backend",
-    "dev:frontend": "cd apps/frontend && bun run dev",
-    "dev:backend": "cd apps/backend && bun run dev",
+    "dev:frontend": "cd frontend && bun run dev",
+    "dev:backend": "cd backend && bun run dev",
     "build": "bun run build:frontend && bun run build:backend",
-    "build:frontend": "cd apps/frontend && bun run build",
-    "build:backend": "cd apps/backend && bun run build",
-    "lint": "cd apps/frontend && bun run lint",
-    "test": "cd apps/frontend && bun run test",
+    "build:frontend": "cd frontend && bun run build",
+    "build:backend": "cd backend && bun run build",
+    "lint": "cd frontend && bun run lint",
+    "test": "cd frontend && bun run test",
     "docker:build": "docker build -t powerband .",
     "docker:run": "docker run -p 8080:80 -p 3001:3001 powerband",
     "docker:compose": "docker-compose up -d",

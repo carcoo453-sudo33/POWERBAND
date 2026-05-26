@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client';
 import { authenticate, AuthRequest } from '../middleware/auth';
 import { AppError } from '../middleware/errorHandler';
 
-const router = Router();
+const router: any = Router();
 const prisma = new PrismaClient();
 
 // Validation schema
