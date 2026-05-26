@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: powerband-mongodb
+    environment:
+      MONGO_INITDB_DATABASE: powerband
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - powerband-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok'
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: powerband-backend
+    ports:
+      - "3001:3001"
+    environment:
+      DATABASE_URL: mongodb://mongodb:27017/powerband
+      NODE_ENV: development
+      PORT: 3001
+      JWT_SECRET: dev-secret-key-change-in-production
+      CORS_ORIGIN: http://localhost:5173
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - powerband-network
+    volumes:
+      - ./apps/backend/src:/app/src
+    command: bun run dev
+
+volumes:
+  mongo_data:
+
+networks:
+  powerband-network:
+    driver: bridge
