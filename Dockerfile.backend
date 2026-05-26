@@ -1,0 +1,47 @@
+# Build stage
+FROM oven/bun:latest as builder
+
+WORKDIR /app
+
+# Copy monorepo files
+COPY package.json bun.lockb ./
+COPY apps/backend ./apps/backend
+COPY packages/shared ./packages/shared
+COPY tsconfig.json ./
+
+# Install dependencies
+RUN bun install --frozen-lockfile
+
+# Build the backend
+RUN cd apps/backend && bun run build
+
+# Generate Prisma client
+RUN cd apps/backend && bun run prisma:generate
+
+# Runtime stage
+FROM oven/bun:slim
+
+WORKDIR /app
+
+# Copy from builder
+COPY --from=builder /app/apps/backend/dist ./dist
+COPY --from=builder /app/apps/backend/node_modules ./node_modules
+COPY --from=builder /app/apps/backend/package.json ./
+COPY --from=builder /app/node_modules ./.bun/cache
+
+# Copy Prisma files
+COPY --from=builder /app/apps/backend/prisma ./prisma
+COPY --from=builder /app/apps/backend/node_modules/.prisma ./node_modules/.prisma
+
+# Create .env file (will be overridden in production)
+RUN echo "DATABASE_URL=\nPORT=3001\nNODE_ENV=production" > .env
+
+# Expose port
+EXPOSE 3001
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD bun run healthcheck || exit 1
+
+# Start the backend
+CMD ["bun", "run", "start"]
